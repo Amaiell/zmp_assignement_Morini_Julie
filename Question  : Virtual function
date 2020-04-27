@@ -1,0 +1,27 @@
+Question :
+2. What is a virtual function in C++ and how does the compiler handle them?
+
+Answer:
+In C++ a virtual function is a kind of member function of a class.
+They are declared by ading the word "virtual" before their definition in class.
+
+When we define member functions of a base class and its derived class with the same name, we face a problem when calling the functions after.
+Indeed when calling the function with pointer to the base class type, even if we affect adress of the derived class, 
+the function from the base class will be called instead of the function from the derived class. 
+By default during compile time, the binding is done according to the type of the pointer : hence the base class. 
+In order to resolve this problem and be able to call function from derived class with pointer of base class type,
+we need to define them as virtual in the base class.
+Doing so, the virtual function will be bound during runtime instead of being bound during Compile time,
+hence the binding will be done according to the adress where the pointer is pointing instead of the type of the pointer.
+In other words the compiler will be checking if same name function exist in derived class.
+In order to do so the compiler acts as following:
+when a class contains virtual function, these functions pointer array is created.
+when creating an object of based class containing virtual function, a virtual pointer is created as member of the base class,
+it is pointing to the array of virtual functions pointers.
+When compiling, the virtual function specify to the compiler that it should perform late
+
+
+
+
+
+example : 
