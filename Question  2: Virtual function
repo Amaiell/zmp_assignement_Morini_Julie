@@ -15,13 +15,44 @@ Doing so, the virtual function will be bound during runtime instead of being bou
 hence the binding will be done according to the adress where the pointer is pointing instead of the type of the pointer.
 In other words the compiler will be checking if same name function exist in derived class.
 In order to do so the compiler acts as following:
-when a class contains virtual function, these functions pointer array is created.
-when creating an object of based class containing virtual function, a virtual pointer is created as member of the base class,
+when a class contains virtual function, an array of pointers pinting to the virtual functions is created.
+when creating an object of base class containing virtual function, a virtual pointer is created as member of the base class,
 it is pointing to the array of virtual functions pointers.
-When compiling, the virtual function specify to the compiler that it should perform late
 
+Example: 
 
+CODE :
+//program illustrating the problem when not using virtual function
+#include <iostream>
+using namespace std;
 
+class Parent {
+Public:
+  void activity() { cout << "Working\n";}
+  virtual void can_drive() { cout << "Is allowed to drive if has license" }
+};
+class Child : public Parent {
+public:
+  void activity() { cout << "Playing\n";}
+  virtual void can_drive() { cout << "Is not allowed to drive" } 
+};
 
+void main()
+{
+  Parent* pointer; //create a pointer for theclass
+  Child Steven; // creating a derived class object
+  pointer = &Steven //assigning our pointer to the adress of the created object
+  
+  pointer ->activity();
+  pointer ->can_drive();
+}
 
-example : 
+OUTPUT :
+Working
+Is not allowed to drive
+  
+COMMENT : 
+the activity function is not virtual, the base class function is called by default
+the can_drive function is declared as virtual in the base class, the derived class function will be used if defined.
+  
+  
