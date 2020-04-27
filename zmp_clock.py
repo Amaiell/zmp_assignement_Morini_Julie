@@ -1,3 +1,4 @@
+#we suppose that the user is entering the hour in the following format : HH:MM
 def clock_needle():
     time=input('What time is it?:')
     hour=int(time[0:2])
