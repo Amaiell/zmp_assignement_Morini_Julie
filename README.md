@@ -1,6 +1,6 @@
-# zmp_devoirs
-devoirs de programmation 就活 ZMP
-Les exercices sont lessuivants :
+# zmp_assignement_Morini_Julie
+Programming assignement
+the exercices are as follows : 
 1. Write a function to find the angle between the minute and hour hand in an analog clock. (Python and C++)
 
 2. What is a virtual function in C++ and how does the compiler handle them?
